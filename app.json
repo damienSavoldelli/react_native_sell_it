@@ -1,5 +1,7 @@
 {
   "expo": {
     "sdkVersion": "27.0.0"
-  }
+  },
+  "name": "sell_it_app",
+  "displayName": "sell_it_app"
 }
