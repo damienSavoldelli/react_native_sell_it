@@ -18,7 +18,12 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "16.3.1",
-    "react-native": "~0.55.2"
+    "react-native": "~0.55.2",
+    "react-native-navigation": "^1.1.480",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-promise": "^0.6.0"
   }
 }
