@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "babel-preset-react-native-stage-0": "^1.0.1",
+    "eslint": "^5.3.0",
     "jest": "^23.4.2",
     "jest-react-native": "^18.0.0",
     "react-test-renderer": "16.3.1"
