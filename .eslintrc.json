@@ -1,26 +1,26 @@
 {
-    "extends": "airbnb",
-    "env": {
-      "jest": true
-    },
-    "rules": {
-      "react/jsx-filename-extension": [
-        2,
-        {
-          "extensions": [".js", ".jsx"]
-        }
-      ],
-      "react/require-default-props": [0],
-      "global-require": [0],
-      "func-names": [0],
-      "react/prop-types": [0],
-      "import/prefer-default-export": [0],
-      "react/jsx-one-expression-per-line": [0],
-      "no-underscore-dangle": [
-        "error", 
-        {
-          "allow": ["__REDUX_DEVTOOLS_EXTENSION__"]
-        }
-      ]
-    }
+  "extends": "airbnb",
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/require-default-props": [0],
+    "global-require": [0],
+    "func-names": [0],
+    "react/prop-types": [0],
+    "import/prefer-default-export": [0],
+    "react/jsx-one-expression-per-line": [0],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["__REDUX_DEVTOOLS_EXTENSION__"]
+      }
+    ]
+  }
 }
