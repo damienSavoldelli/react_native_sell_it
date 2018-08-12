@@ -23,6 +23,11 @@
     "iosPadAir2": "react-native run-ios --simulator='iPad Air 2'",
     "test": "jest"
   },
+  "rnpm": {
+    "assets": [
+      "./assets/Fonts"
+    ]
+  },
   "jest": {
     "preset": "react-native"
   },
