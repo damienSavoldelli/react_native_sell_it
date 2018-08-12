@@ -17,6 +17,10 @@
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "ios5": "react-native run-ios --simulator='iPhone 5'",
+    "ios7": "react-native run-ios --simulator='iPhone 7'",
+    "ios7+": "react-native run-ios --simulator='iPhone 7 Plus'",
+    "iosPadAir2": "react-native run-ios --simulator='iPad Air 2'",
     "test": "jest"
   },
   "jest": {
