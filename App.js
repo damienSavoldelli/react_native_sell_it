@@ -1,12 +1,34 @@
 import { Navigation } from 'react-native-navigation';
+import { Provider } from 'react-redux';
+
+import ConfigureStore from './app/config/store';
 
 import Home from './app/components/views/Home';
 import Login from './app/components/views/Login';
 import AddPost from './app/components/views/Admin/AddPost';
 
-Navigation.registerComponent('sell_it_app.Login', () => Login);
-Navigation.registerComponent('sell_it_app.Home', () => Home);
-Navigation.registerComponent('sell_it_app.AddPost', () => AddPost);
+const store = ConfigureStore();
+
+Navigation.registerComponent(
+  'sell_it_app.Login',
+  () => Login,
+  store,
+  Provider,
+);
+
+Navigation.registerComponent(
+  'sell_it_app.Home',
+  () => Home,
+  store,
+  Provider,
+);
+
+Navigation.registerComponent(
+  'sell_it_app.AddPost',
+  () => AddPost,
+  store,
+  Provider,
+);
 
 export default () => Navigation.startSingleScreenApp({
   screen: {
