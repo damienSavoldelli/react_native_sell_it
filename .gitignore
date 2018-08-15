@@ -17,6 +17,9 @@ yarn-debug.log*
 yarn-error.log*
 
 
+# Config
+app/config/api.js
+
 # OSX
 .DS_Store
 
