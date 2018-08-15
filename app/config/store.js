@@ -3,7 +3,7 @@ import promiseMiddleware from 'redux-promise';
 
 import Reducers from '../store/reducers';
 
-const reduxCompose = compose;
+let reduxCompose = compose;
 
 if (__DEV__) {
   reduxCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
