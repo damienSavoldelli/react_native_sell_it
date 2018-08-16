@@ -8,6 +8,8 @@ import { Signup, Signin } from '../../../store/actions/User'
 
 import styles from './styles';
 
+import { setTokens, getTokens } from '../../utils/misc';
+
 import Input from '../../utils/Input';
 import ValidationRules from '../../utils/validationRules';
 
@@ -85,6 +87,17 @@ export class LoginForm extends Component {
     this.setState({hasErrors: false, form:formCopy})
   }
 
+  manageAcces = () => {
+    if (!this.props.User.userData.uid) {
+      this.setState({hasErrors: true});
+    } else {
+      setTokens(this.props.User.userData, () => {
+        this.setState({hasErrors: false});
+        LoadTabs();        
+      });
+    }
+  }
+
   submitUser = () => {
     let isFormValid = true;
     let formToSubmit = {};
@@ -105,15 +118,11 @@ export class LoginForm extends Component {
     if (isFormValid) {
       if (this.state.type == 'Login') {
         this.props.Signin(formToSubmit).then(() => {
-          console.log('====================================');
-          console.log(this.props.User);
-          console.log('====================================');
+          this.manageAcces()
         })
       } else {
         this.props.Signup(formToSubmit).then(() => {
-          console.log('====================================');
-          console.log(this.props.User);
-          console.log('====================================');
+          this.manageAcces()
         })
       }
       
@@ -193,9 +202,11 @@ export class LoginForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  User: state.user
-})
+const mapStateToProps = (state) => {
+  return {
+    User: state.User
+  }
+}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({Signup, Signin}, dispatch)
