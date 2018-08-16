@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { Signup, Signin } from '../../../store/actions/User'
+
 import styles from './styles';
 
 import Input from '../../utils/Input';
@@ -97,9 +102,20 @@ export class LoginForm extends Component {
         formToSubmit[key] = formCopy[key].value;
       }
     }
-
     if (isFormValid) {
-      console.log(formToSubmit);
+      if (this.state.type == 'Login') {
+        this.props.Signin(formToSubmit).then(() => {
+          console.log('====================================');
+          console.log(this.props.User);
+          console.log('====================================');
+        })
+      } else {
+        this.props.Signup(formToSubmit).then(() => {
+          console.log('====================================');
+          console.log(this.props.User);
+          console.log('====================================');
+        })
+      }
       
     } else {
       this.setState({hasErrors: true})
@@ -177,4 +193,12 @@ export class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+const mapStateToProps = (state) => ({
+  User: state.user
+})
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({Signup, Signin}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
