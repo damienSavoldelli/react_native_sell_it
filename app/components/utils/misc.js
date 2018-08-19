@@ -13,6 +13,16 @@ export const removeOrientationListener = () => (
 
 export const getPlateform = () => ((Platform.OS === 'ios') ? 'ios' : 'android');
 
+
+export const navigatorDrawer = (event, $this) => {
+  if (event.type === 'NavBarButtonPress' && event.id === 'DrawerButton') {
+    $this.props.navigator.toggleDrawer({
+      side: 'left',
+      animated: true,
+    });
+  }
+};
+
 export const getTokens = (callback) => {
   AsyncStorage.multiGet([
     '@sellitApp@token',

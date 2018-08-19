@@ -8,6 +8,8 @@ import Home from './app/components/views/Home';
 import Login from './app/components/views/Login';
 import AddPost from './app/components/views/Admin/AddPost';
 
+import SideDrawer from './app/components/views/SideDrawer';
+
 const store = ConfigureStore();
 
 EStyleSheet.build();
@@ -29,6 +31,13 @@ Navigation.registerComponent(
 Navigation.registerComponent(
   'sell_it_app.AddPost',
   () => AddPost,
+  store,
+  Provider,
+);
+
+Navigation.registerComponent(
+  'sell_it_app.SideDrawer',
+  () => SideDrawer,
   store,
   Provider,
 );
