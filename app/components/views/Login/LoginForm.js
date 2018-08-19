@@ -8,7 +8,7 @@ import { Signup, Signin } from '../../../store/actions/User'
 
 import styles from './styles';
 
-import { setTokens, getTokens } from '../../utils/misc';
+import { setTokens } from '../../utils/misc';
 
 import Input from '../../utils/Input';
 import ValidationRules from '../../utils/validationRules';
