@@ -68,7 +68,7 @@ const LoadTabs = () => {
       drawer: {
         left: {
           screen: 'sell_it_app.SideDrawer',
-          fixedWidth: 100,
+          fixedWidth: 500,
         },
       },
     });

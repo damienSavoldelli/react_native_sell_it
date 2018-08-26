@@ -7,6 +7,7 @@ import ConfigureStore from './app/config/store';
 import Home from './app/components/views/Home';
 import Login from './app/components/views/Login';
 import AddPost from './app/components/views/Admin/AddPost';
+import UserPost from './app/components/views/Admin/UserPost';
 
 import SideDrawer from './app/components/views/SideDrawer';
 
@@ -31,6 +32,13 @@ Navigation.registerComponent(
 Navigation.registerComponent(
   'sell_it_app.AddPost',
   () => AddPost,
+  store,
+  Provider,
+);
+
+Navigation.registerComponent(
+  'sell_it_app.UserPost',
+  () => UserPost,
   store,
   Provider,
 );
