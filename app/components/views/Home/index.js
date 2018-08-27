@@ -31,7 +31,21 @@ export class Home extends Component {
   }
 
   changeCategory = (value) => {
-    this.setState({categorySelected: value});
+    this.setState({
+      categorySelected: value,
+      isLoading: true,
+      articles:[],
+    });
+
+    this.props.getArticle(value).then(() => {
+      const newArticles = gridTwoColumns(this.props.Articles.list);
+
+      this.setState({
+        isLoading: false,
+        articles: newArticles
+      });
+    });
+
   }
 
   renderArticles() {

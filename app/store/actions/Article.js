@@ -10,8 +10,9 @@ export function getArticle(category) {
   let url = `${FIREBASEURL}articles.json`;
 
   if (category !== 'All') {
-    url = '';
+    url = `${url}/?orderBy=\"category\"&equalTo=\"${category}\"`;
   }
+
   const request = axios({
     method: 'GET',
     url,
