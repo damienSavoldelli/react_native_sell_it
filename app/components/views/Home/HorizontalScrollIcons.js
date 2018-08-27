@@ -30,7 +30,7 @@ const categoriesIcon = (value) => {
   return name;
 };
 
-export class HorizontalScrollIcons extends Component {
+class HorizontalScrollIcons extends Component {
   generateIcon() {
     const { categories, selected, updateCategoryHandler } = this.props;
     return (
@@ -63,7 +63,7 @@ export class HorizontalScrollIcons extends Component {
         snapToInterval={200}
         showsHorizontalScrollIndicator={false}
       >
-        <View style={styles.scollContainer}>
+        <View style={styles.scrollContainer}>
           {this.generateIcon()}
         </View>
       </ScrollView>

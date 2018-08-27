@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { navigatorDrawer, navigatorDeepLink } from '../../utils/misc';
+import { navigatorDrawer, navigatorDeepLink, gridTwoColumns } from '../../utils/misc';
 
-import HorizontalScrollIcons from './horizontal_scroll_icons';
+import { getArticle } from '../../../store/actions/Article'
+
+import HorizontalScrollIcons from './HorizontalScrollIcons';
+import BlockItem from './BlockItem';
+
 import styles from './styles';
 
 export class Home extends Component {
@@ -11,6 +18,8 @@ export class Home extends Component {
     super(props);
 
     this.state = {
+      isLoading: true,
+      articles: [],
       categories: ['All', 'Sports', 'Music', 'Clothing', 'Electronics'],
       categorySelected: 'All',
     };
@@ -22,7 +31,31 @@ export class Home extends Component {
   }
 
   changeCategory = (value) => {
-    this.setState({categorySelected: value})
+    this.setState({categorySelected: value});
+  }
+
+  renderArticles() {
+    return (
+      this.state.articles.map((item, i) => (
+        <BlockItem 
+          key={`columnHome${i}`}
+          item={item}
+          iteration={i}
+          />
+      ))
+    )
+  }
+
+
+  componentDidMount() {
+    this.props.getArticle('All').then(() => {
+      const newArticles = gridTwoColumns(this.props.Articles.list);
+
+      this.setState({
+        isLoading: false,
+        articles: newArticles
+      });
+    });
   }
 
   render() {
@@ -35,10 +68,37 @@ export class Home extends Component {
             selected={categorySelected}
             updateCategoryHandler={this.changeCategory}
           />
+          {
+            this.state.isLoading
+            ? 
+              <View style={styles.isLoadingContainer}>
+                <Icon 
+                  name="gears" size={30} color="lightgrey"
+                />
+                <Text style={styles.isLoadingText}>Loading...</Text>
+              </View>
+            : null
+          }
+        </View>
+        <View style={styles.articleContainer}>
+          <View style={styles.articleContent}>
+            {this.renderArticles()}
+          </View>
         </View>
       </ScrollView>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    Articles: state.Article,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({getArticle}, dispatch)
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -72,3 +72,29 @@ export const setTokens = (values, callback) => {
     callback();
   });
 };
+
+
+export const gridTwoColumns = (list) => {
+  const newArticles = [];
+  const articles = list;
+
+  let vessel = {};
+  let count = 1;
+
+  if (articles) {
+    articles.forEach((element) => {
+      if (count === 1) {
+        vessel.blockOne = element;
+        count += 1;
+      } else {
+        vessel.blockTwo = element;
+        newArticles.push(vessel);
+
+        count = 1;
+        vessel = {};
+      }
+    });
+  }
+
+  return newArticles;
+};
