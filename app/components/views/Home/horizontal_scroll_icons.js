@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from './styles';
 
+import styles from './styles';
 
 const categoriesIcon = (value) => {
   let name = 'home';
@@ -54,7 +54,6 @@ export class HorizontalScrollIcons extends Component {
         : null
     );
   }
-
 
   render() {
     return (
