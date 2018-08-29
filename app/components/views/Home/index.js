@@ -53,8 +53,8 @@ export class Home extends Component {
     this.props.navigator.push({
       screen: 'sell_it_app.Article',
       animationType: 'slide-horizontal',
-      passPorps: {
-        ArticleData : props
+      passProps: {
+        articleData : props
       },
       backButtonTitle: '',
       label: `${props.title}`,
