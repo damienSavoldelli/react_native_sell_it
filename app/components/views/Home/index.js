@@ -48,6 +48,29 @@ export class Home extends Component {
 
   }
 
+
+  goToArticle = (props) => {
+    this.props.navigator.push({
+      screen: 'sell_it_app.Article',
+      animationType: 'slide-horizontal',
+      passPorps: {
+        ArticleData : props
+      },
+      backButtonTitle: '',
+      label: `${props.title}`,
+      title: `${props.title}`,
+      navigatorStyle: {
+        navBarTextFontSize: 20,
+        navBarTextColor:'#FFF',
+        navBarTextFontFamily: 'RobotoCondensed-Bold',
+        navBarBackgroundColor: '#00ADA9',
+        navBarTitleTextCentered: true, // android only
+        navBarSubTitleTextCentered: true,
+        screenBackgroundColor: '#FFF'
+      }
+    })
+  }
+
   renderArticles() {
     return (
       this.state.articles.map((item, i) => (
@@ -55,6 +78,7 @@ export class Home extends Component {
           key={`columnHome${i}`}
           item={item}
           iteration={i}
+          goTo={this.goToArticle}
           />
       ))
     )

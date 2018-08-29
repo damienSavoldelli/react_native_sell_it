@@ -32,7 +32,7 @@ const BlockItem = (props) => {
     <View style={styles.blockRow}>
       <TouchableOpacity
         style={styles.card}
-        onPress={() => console.log('item pressed', iteration, item)}
+        onPress={() => props.goTo(item.blockOne)}
       >
         <View
           tyle={[styles.blockGridStyle, styles.blockGridStyleLeft]}
@@ -44,7 +44,7 @@ const BlockItem = (props) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.card}
-        onPress={() => console.log('item pressed', iteration, item)}
+        onPress={() => props.goTo(item.blockTwo)}
       >
         <View
           style={[styles.blockGridStyle, styles.blockGridStyleRight]}

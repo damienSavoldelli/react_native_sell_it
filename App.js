@@ -8,6 +8,7 @@ import Home from './app/components/views/Home';
 import Login from './app/components/views/Login';
 import AddPost from './app/components/views/Admin/AddPost';
 import UserPost from './app/components/views/Admin/UserPost';
+import Article from './app/components/views/Article';
 
 import SideDrawer from './app/components/views/SideDrawer';
 
@@ -46,6 +47,13 @@ Navigation.registerComponent(
 Navigation.registerComponent(
   'sell_it_app.SideDrawer',
   () => SideDrawer,
+  store,
+  Provider,
+);
+
+Navigation.registerComponent(
+  'sell_it_app.Article',
+  () => Article,
   store,
   Provider,
 );
