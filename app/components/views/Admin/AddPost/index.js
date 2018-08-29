@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 
 import { navigatorDrawer } from '../../../utils/misc';
 
-export class AddPost extends Component {
+class AddPost extends Component {
   constructor(props) {
     super(props);
 
