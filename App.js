@@ -6,6 +6,7 @@ import ConfigureStore from './app/config/store';
 
 import Home from './app/components/views/Home';
 import Login from './app/components/views/Login';
+import NotAllow from './app/components/views/Admin/AddPost/NotAllow';
 import AddPost from './app/components/views/Admin/AddPost';
 import UserPost from './app/components/views/Admin/UserPost';
 import Article from './app/components/views/Article';
@@ -19,6 +20,13 @@ EStyleSheet.build();
 Navigation.registerComponent(
   'sell_it_app.Login',
   () => Login,
+  store,
+  Provider,
+);
+
+Navigation.registerComponent(
+  'sell_it_app.NotAllow',
+  () => NotAllow,
   store,
   Provider,
 );
