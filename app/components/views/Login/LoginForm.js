@@ -93,7 +93,7 @@ export class LoginForm extends Component {
     } else {
       setTokens(this.props.User.userData, () => {
         this.setState({hasErrors: false});
-        LoadTabs();        
+        LoadTabs(true);        
       });
     }
   }
@@ -193,7 +193,7 @@ export class LoginForm extends Component {
           <Button
             title="I'll do it later"
             color='lightgrey'
-            onPress={() => LoadTabs()}
+            onPress={() => LoadTabs(false)}
           />
         </View>
         

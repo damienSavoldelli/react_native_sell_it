@@ -54,7 +54,7 @@ export class Login extends Component {
             this.setState({loading:false});
           } else {
             setTokens(this.props.User.userData, () => {
-              LoadTabs();
+              LoadTabs(true);
             });
           }
         });
