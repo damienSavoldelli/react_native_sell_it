@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput } from 'react-native';
+import { TextInput, Picker } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 
@@ -29,7 +29,20 @@ const Input = (props) => {
         />
       );
       break;
-
+    case 'picker':
+      template = (
+        <Picker
+          selectedValue={props.value}
+          {...props}
+        >
+          {
+            props.options.map((item, i) => (
+              <Picker.Item key={i} label={item} value={item} />
+            ))
+          }
+        </Picker>
+      );
+      break;
     default:
       return template;
   }
