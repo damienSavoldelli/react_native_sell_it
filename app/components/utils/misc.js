@@ -80,21 +80,26 @@ export const gridTwoColumns = (list) => {
 
   let vessel = {};
   let count = 1;
+  let j = 0;
 
   if (articles) {
-    articles.forEach((element) => {
+    for (let i = 0; i < articles.length; i += 1) {
+      j = i + 1;
+
       if (count === 1) {
-        vessel.blockOne = element;
+        vessel.blockOne = articles[i];
         count += 1;
+
+
+        if (!articles[j]) newArticles.push(vessel);
       } else {
-        vessel.blockTwo = element;
+        vessel.blockTwo = articles[i];
         newArticles.push(vessel);
 
         count = 1;
         vessel = {};
       }
-    });
+    }
   }
-
   return newArticles;
 };

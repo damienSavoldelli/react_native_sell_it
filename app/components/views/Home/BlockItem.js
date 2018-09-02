@@ -42,18 +42,26 @@ const BlockItem = (props) => {
         </View>
 
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.card}
-        onPress={() => props.goTo(item.blockTwo)}
-      >
-        <View
-          style={[styles.blockGridStyle, styles.blockGridStyleRight]}
-        >
-          {itemImage(iteration)}
-          {itemText(item.blockTwo)}
-        </View>
+      {
+        (item.blockTwo)
+          ? (
+            <TouchableOpacity
+              style={styles.card}
+              onPress={() => props.goTo(item.blockTwo)}
+            >
+              <View
+                style={[styles.blockGridStyle, styles.blockGridStyleRight]}
+              >
+                {itemImage(iteration)}
+                {itemText(item.blockTwo)}
+              </View>
 
-      </TouchableOpacity>
+            </TouchableOpacity>
+          )
+          : (
+            <View style={styles.card} />
+          )
+      }
     </View>
   );
   return (
