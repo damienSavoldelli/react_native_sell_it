@@ -1,4 +1,6 @@
-import { REGISTER_USER, SIGN_USER, AUTO_SIGIN_IN } from '../types';
+import {
+  REGISTER_USER, SIGN_USER, AUTO_SIGIN_IN, GET_USER_POSTS, DELETE_USER_POST,
+} from '../types';
 
 const initialState = {};
 
@@ -32,7 +34,16 @@ export default (state = initialState, action) => {
           refToken: action.payload.refresh_token || false,
         },
       };
-
+    case GET_USER_POSTS:
+      return {
+        ...state,
+        userPosts: action.payload,
+      };
+    case DELETE_USER_POST:
+      return {
+        ...state,
+        ...action.payload,
+      };
     default:
       return state;
   }
