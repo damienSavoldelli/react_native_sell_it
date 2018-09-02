@@ -1,3 +1,71 @@
+# React Native Sell It App
+
+## lesson :
+
+https://www.udemy.com/the-complete-react-native-course-create-beautiful-apps/
+
+
+## Api key FireBase :
+
+- Créer un compte (https://firebase.google.com/)
+- Authentification > Mode de connexion > Adresse email / Mot de passe
+- Database > Realtime Database > Données : Importer les articles json via app/config/doc/firebase
+- Database > Realtime Database > Règles :
+```json
+{
+  "rules": {
+    ".read": true,
+    ".write": "auth != null",
+    "articles":{
+      ".indexOn":["category", "uid"]
+    }
+  }
+}
+```
+- Renommer le fichier src/config/api.example.js par src/config/api.js
+- Ajouter votre Clé API et l'url du projet :
+
+```js
+export const FIREBASEURL = '[URL_FIREBASE]';
+export const APIKEY = '[API_KEY_FIREBASE]';
+```
+
+
+## Pour installer le projet se placer dans le projet et lancer :
+
+```
+> npm install
+```
+
+
+## Pour lancer l'application vio IOS
+  - simulateur ios par défaut :
+  ```
+  > npm run ios
+  ```
+  - simulateur ios 7 :
+  ```
+  > npm run ios7+
+  ```
+  - simulateur ios 7 + :
+  ```
+  > npm run ios7+
+  ```
+
+
+## Pour lancer l'application vio ANDRIOD
+  - Démarrer le simulateur 
+  ```
+  > emulator @[SIMULTEUR_ANDRIOD_CONFIGURE]
+  ```
+  - Lancer l'application sous anroid
+  ```
+  > npm run android
+  ```
+
+
+
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
