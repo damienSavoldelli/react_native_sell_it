@@ -50,6 +50,15 @@ const styles = EStyleSheet.create({
     color: 'red',
     marginBottom: 10,
   },
+  buttonSellIt: {
+    fontFamily: 'Roboto-Black',
+    fontSize: 17,
+    backgroundColor: '#00ADA9',
+    marginBottom: 10,
+    marginTop: 10,
+    padding: 5,
+
+  },
 });
 
 export default styles;

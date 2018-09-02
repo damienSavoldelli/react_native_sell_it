@@ -200,13 +200,6 @@ class AddPost extends Component {
     const { form, loading, modalVisible, arrErrors, modalSuccess } = this.state;
     return (
       <ScrollView>
-        <Button 
-          title='Got back home'
-          onPress={() => {
-            this.resetSellitScreen();
-          }}
-        />
-
         <View style={styles.postFormContainer}>
           <View style={styles.postFormTitle}>
             <Text style={styles.mainTitle}> Sell your things </Text>
@@ -287,6 +280,7 @@ class AddPost extends Component {
           {
             !loading
             ? <Button
+              style={styles.buttonSellIt}
               title='Sell it'
               color='lightgrey'
               onPress={this.submitFormHandler}
