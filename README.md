@@ -8,7 +8,7 @@ https://www.udemy.com/the-complete-react-native-course-create-beautiful-apps/
 ## Api key FireBase :
 
 - Créer un compte (https://firebase.google.com/)
-- Authentification > Mode de connexion > Adresse email / Mot de passe
+- Authentification > Mode de connexion : Valider Adresse email / Mot de passe
 - Database > Realtime Database > Données : Importer les articles json via app/config/doc/firebase
 - Database > Realtime Database > Règles :
 ```json
