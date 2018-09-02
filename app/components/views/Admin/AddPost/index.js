@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, Button, Modal } from 'react-native';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-import { navigatorDrawer } from '../../../utils/misc';
+import { addArticle, resetArticle } from '../../../../store/actions/Article'
+import { AutoSigin } from '../../../../store/actions/User'
+
+import { navigatorDrawer, setTokens, getTokens, } from '../../../utils/misc';
 import Input from '../../../utils/Input';
 import ValidationRules from '../../../utils/validationRules'
 
@@ -102,15 +107,34 @@ class AddPost extends Component {
       isFormValid = isFormValid && formCopy[key].valid;
       formToSubmit[key] = formCopy[key].value;
     }
-    if (isFormValid) {
-      console.log('====================================');
-      console.log("Data to submit", formToSubmit);
-      console.log('====================================');
 
+    if (isFormValid) {
       this.setState({
         loading:true,
-        modalSuccess: true,
-      })
+      });
+
+      getTokens((value) => {
+        const dateNow = new Date();
+        const expiration = dateNow.getTime();
+        const form = {
+          ...formToSubmit, 
+          uid: value[3][1],
+        };
+
+        if(expiration > value[2][1]) {
+          this.props.AutoSigin(values[1][1]).then(() => {
+            setTokens(this.props.User.userData, () => {
+              this.props.addArticle(form, this.props.User.userData.toekn).then(() => {
+                this.setState({modalSuccess: true});
+              })
+            });
+          });
+        } else {
+          this.props.addArticle(form, value[0][1]).then(() => {
+            this.setState({modalSuccess: true});
+          });
+        }
+      });
       
     } else {
       let arrErrors = [];
@@ -164,6 +188,8 @@ class AddPost extends Component {
       modalVisible: false,
       arrErrors: []
     })
+
+    this.props.resetArticle();
 
     this.props.navigator.switchToTab({
       tabIndex:0
@@ -303,4 +329,16 @@ class AddPost extends Component {
   }
 }
 
-export default AddPost;
+const mapStateToProps = (state) => {
+  return {
+    Article: state.Article,
+    User: state.User,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({AutoSigin, addArticle, resetArticle}, dispatch)
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddPost);
