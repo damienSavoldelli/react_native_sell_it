@@ -44,6 +44,33 @@ const styles = EStyleSheet.create({
   ownerEmail: {
     fontSize: 18,
   },
+  containerOtherArticle: {
+    marginTop: 20,
+    paddingTop: 10,
+    borderTopWidth: 1,
+    borderTopColor: 'lightgrey',
+  },
+  otherArtclesTitle: {
+    marginTop: 15,
+    marginBottom: 10,
+    fontFamily: 'Roboto-black',
+    fontSize: 27,
+    textAlign: 'center',
+    color: '#474143',
+  },
+  ortherArticleContent: {
+    flex: 1,
+    marginBottom: 15,
+  },
+  itemImage: {
+    width: '100%',
+    height: 100,
+  },
+  itemTitle: {
+    fontFamily: 'Roboto-Italic',
+    fontSize: 17,
+    color: '#474143',
+  },
 });
 
 export default styles;

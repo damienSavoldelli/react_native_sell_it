@@ -73,7 +73,6 @@ export const setTokens = (values, callback) => {
   });
 };
 
-
 export const gridTwoColumns = (list) => {
   const newArticles = [];
   const articles = list;
@@ -102,4 +101,13 @@ export const gridTwoColumns = (list) => {
     }
   }
   return newArticles;
+};
+
+export const getArticlesfiltered = (article, filter, extract, slice = 0) => {
+  let articlesFiltered = article.filter(obj => (obj.category && obj.category === filter));
+
+  if (extract) articlesFiltered = article.filter(obj => (obj.id && obj.id !== extract));
+
+  if (slice) return articlesFiltered.slice(0, slice);
+  return articlesFiltered;
 };
