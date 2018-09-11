@@ -56,7 +56,7 @@ export const APIKEY = '[API_KEY_FIREBASE]';
 ## Pour lancer l'application vio ANDRIOD
   - Démarrer le simulateur 
   ```
-  > emulator @[SIMULTEUR_ANDRIOD_CONFIGURE]
+  > emulator @[SIMULTEUR_ANDROID_CONFIGURE]
   ```
   - Lancer l'application sous anroid
   ```
