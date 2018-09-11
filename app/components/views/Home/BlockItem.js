@@ -35,7 +35,7 @@ const BlockItem = (props) => {
         onPress={() => props.goTo(item.blockOne)}
       >
         <View
-          tyle={[styles.blockGridStyle, styles.blockGridStyleLeft]}
+          style={[styles.blockGridStyle, styles.blockGridStyleLeft]}
         >
           {itemImage(iteration)}
           {itemText(item.blockOne)}
